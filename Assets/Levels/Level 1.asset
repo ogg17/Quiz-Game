@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a5b3dfb882ea94dbfd7f559b5fda0b, type: 3}
-  m_Name: Letters
+  m_Script: {fileID: 11500000, guid: d75e28f2fd68e3a46a270eb60633cc80, type: 3}
+  m_Name: Level 1
   m_EditorClassIdentifier: 
-  cellImages: []
-  cellParameters:
-  - cellName: 
-    cellLocalPosition: {x: 0, y: 0}
-    cellLocalRotation: {x: 0, y: 0, z: 0}
-    cellLocalScale: {x: 0, y: 0}
+  levelRows: 1
+  levelColumns: 3

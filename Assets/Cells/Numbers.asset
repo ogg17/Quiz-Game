@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a5b3dfb882ea94dbfd7f559b5fda0b, type: 3}
+  m_Name: Numbers
+  m_EditorClassIdentifier: 
+  cellImages:
+  - {fileID: 1422184923334757970, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: 1808195818850983521, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: -7900951133411543555, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: -7398325283844340781, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: 2267071060405275165, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: -7015292045520539579, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: -675344402919758444, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: 3547489320769246608, guid: a54a57ee5b6a8384dadb7749adac9bce, type: 3}
+  - {fileID: -1155199509967091035, guid: e322bc1a16e4742489ebfb1f86aa881e, type: 3}
+  - {fileID: 4142021021139464533, guid: e07c1d8d143b7894f90358b3e9dfc9a0, type: 3}
+  cellParameters:
+  - cellName: 1
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 2
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 3
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 4
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 5
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 6
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 7
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 90}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 8
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 90}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 9
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}
+  - cellName: 10
+    cellLocalPosition: {x: 0, y: 0}
+    cellLocalRotation: {x: 0, y: 0, z: 0}
+    cellLocalScale: {x: 0, y: 0}

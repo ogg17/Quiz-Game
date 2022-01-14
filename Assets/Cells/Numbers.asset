@@ -27,7 +27,7 @@ MonoBehaviour:
   - cellName: 1
     cellLocalPosition: {x: 0, y: 0}
     cellLocalRotation: {x: 0, y: 0, z: 0}
-    cellLocalScale: {x: 0, y: 0}
+    cellLocalScale: {x: 0.4, y: 1}
   - cellName: 2
     cellLocalPosition: {x: 0, y: 0}
     cellLocalRotation: {x: 0, y: 0, z: 0}
@@ -36,11 +36,11 @@ MonoBehaviour:
     cellLocalPosition: {x: 0, y: 0}
     cellLocalRotation: {x: 0, y: 0, z: 0}
     cellLocalScale: {x: 0, y: 0}
-  - cellName: 4
+  - cellName: 5
     cellLocalPosition: {x: 0, y: 0}
     cellLocalRotation: {x: 0, y: 0, z: 0}
     cellLocalScale: {x: 0, y: 0}
-  - cellName: 5
+  - cellName: 4
     cellLocalPosition: {x: 0, y: 0}
     cellLocalRotation: {x: 0, y: 0, z: 0}
     cellLocalScale: {x: 0, y: 0}
@@ -50,11 +50,11 @@ MonoBehaviour:
     cellLocalScale: {x: 0, y: 0}
   - cellName: 7
     cellLocalPosition: {x: 0, y: 0}
-    cellLocalRotation: {x: 0, y: 0, z: 90}
+    cellLocalRotation: {x: 0, y: 0, z: -90}
     cellLocalScale: {x: 0, y: 0}
   - cellName: 8
     cellLocalPosition: {x: 0, y: 0}
-    cellLocalRotation: {x: 0, y: 0, z: 90}
+    cellLocalRotation: {x: 0, y: 0, z: -90}
     cellLocalScale: {x: 0, y: 0}
   - cellName: 9
     cellLocalPosition: {x: 0, y: 0}

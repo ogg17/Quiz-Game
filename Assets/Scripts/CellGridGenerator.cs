@@ -1,55 +1,56 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
 public class CellGridGenerator : MonoBehaviour {
     [Tooltip("Levels")]
     [SerializeField] private Level[] levels;
-
-    [Tooltip("Set Cells")] 
-    [SerializeField] private Cell[] cellsSet;
+    public Level[] Levels => levels;
 
     [Tooltip("Cell Prefab")] 
-    [SerializeField] private GameObject cell;
+    [SerializeField] private GameObject cellObject;
 
-    [SerializeField] private float xScale;
-    [SerializeField] private float yScale;
-    
-    private int _currentLevel;
+    [SerializeField] private float rowDistance;
+    [SerializeField] private float columnDistance;
+
     private RectTransform _selfTransform;
-    public List<GameObject> CellObjects { get; } = new List<GameObject>();
-    public List<CellScript> CellScripts { get; } = new List<CellScript>();
+    private readonly List<GameObject> _cellObjects = new List<GameObject>();
     
+    public int CurrentLevel { get; set; }
+    public List<CellScript> CellScripts { get; } = new List<CellScript>();
+    public List<CellAnimation> CellAnimations { get; } = new List<CellAnimation>();
+
     public void OnStart() {
-        _currentLevel = 0;
+        CurrentLevel = 0;
         _selfTransform = GetComponent<RectTransform>();
     }
 
     public void GenerateGrid() {
-        var position = _selfTransform.anchoredPosition;
-        for (int i = 0; i < levels[_currentLevel].LevelColumns; i++)
-            for (int j = 0; j < levels[_currentLevel].LevelRows; j++) {
-                position.x = i * xScale - (levels[_currentLevel].LevelColumns - 1) * xScale / 2;  //По формуле середины отрезка
-                position.y = j * yScale;
-                CellObjects.Add(Instantiate(cell, _selfTransform.position, _selfTransform.localRotation, _selfTransform));
-                CellObjects[CellObjects.Count - 1].GetComponent<RectTransform>().anchoredPosition += position;
-                CellScripts.Add(CellObjects[CellObjects.Count - 1].GetComponent<CellScript>());
+        var selfPosition = _selfTransform.anchoredPosition;
+        for (int i = 0; i < levels[CurrentLevel].ColumnsLevel; i++)
+            for (int j = 0; j < levels[CurrentLevel].RowsLevel; j++) {
+                selfPosition.x = i * rowDistance - (levels[CurrentLevel].ColumnsLevel - 1) * rowDistance / 2;  //By midpoint formula
+                selfPosition.y = j * columnDistance - (levels[CurrentLevel].RowsLevel - 1) * columnDistance / 2;
+                _cellObjects.Add(Instantiate(cellObject, _selfTransform.position, _selfTransform.localRotation, _selfTransform));
+                _cellObjects.Last().GetComponent<RectTransform>().anchoredPosition += selfPosition;
+                CellScripts.Add(_cellObjects.Last().GetComponent<CellScript>());
+                CellAnimations.Add(_cellObjects.Last().GetComponent<CellAnimation>());
             }
     }
 
     public void NextLevel() {
-        _currentLevel = _currentLevel < levels.Length ? _currentLevel + 1 : 0;
-        foreach (var cellGameObject in CellObjects) {
+        CurrentLevel++;
+
+        foreach (var cellScript in CellScripts) {
+            cellScript.CellAnimation.KillAnimation();
+        }
+        foreach (var cellGameObject in _cellObjects) {
             Destroy(cellGameObject);
         }
-        CellObjects.Clear();
-        GenerateGrid();
+        _cellObjects.Clear();
+        CellScripts.Clear();
+        CellAnimations.Clear();
+        if(CurrentLevel < levels.Length) GenerateGrid();
     }
-
-    public int GetCellsCount() {
-        return 0;
-    }
-
 }

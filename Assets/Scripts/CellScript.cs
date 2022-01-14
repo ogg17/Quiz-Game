@@ -1,32 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class CellScript : MonoBehaviour, IPointerClickHandler {
-    [SerializeField] private GameEvents events;
 
-    private Image _image;
-    private bool _isWinCell;
+    [SerializeField] private Image cellImage;
+    [SerializeField] private RectTransform cellImageRectTransform;
+    [SerializeField] private new ParticleSystem particleSystem;
+    [SerializeField] private CellAnimation cellAnimation;
+    public CellGameController GameController { get; set; }
+    public CellAnimation CellAnimation => cellAnimation;
+    public bool IsWinCell { get; set; }
+    public CellOptions CellOption { get; private set; }
 
-    void Start() {
-        _image = GetComponent<Image>();
-    }
+    public void SetImage(Sprite image) => cellImage.sprite = image;
+
+    private bool _isClicked = false;
     
-    public void SetImage(Sprite image) => _image.sprite = image;
-
-    public void SetTransform(CellParameters cellParameter) {
-        Transform tmpTransform;
-        (tmpTransform = transform).Translate(cellParameter.CellLocalPosition);
-        tmpTransform.localEulerAngles = cellParameter.CellLocalRotation;
-        tmpTransform.localScale = cellParameter.CellLocalScale != Vector2.zero ? cellParameter.CellLocalScale : Vector2.one;
+    public void SetParameter(CellOptions cellOption) {
+        CellOption = cellOption;
+        cellImageRectTransform.Translate(cellOption.CellLocalPosition);
+        cellImageRectTransform.localEulerAngles = cellOption.CellLocalRotation;
+        cellImageRectTransform.localScale = cellOption.CellLocalScale != Vector2.zero ? cellOption.CellLocalScale : Vector2.one;
     }
     
     public void OnPointerClick(PointerEventData eventData) {
-        
+        if (IsWinCell && !_isClicked) {
+            particleSystem.Play();
+            GameController.GameWin();
+            _isClicked = true;
+        }
+        else if (!_isClicked) {
+            _isClicked = true;
+            cellAnimation.EaseInBounceAnimation().OnComplete(() => _isClicked = false);
+        }
     }
-    public void CellClick() {}
 }
